@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       <BackgroundImagePage>
-        <Header /> {/* ✅ Use Header without passing navigate */}
+        <Header /> 
         <div className="snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth">
           <section id="home" className="snap-start h-screen flex justify-center items-center">
             <Home />
@@ -20,9 +20,9 @@ function App() {
             <About />
           </section>
           <section id="projects" className="snap-start h-screen flex justify-center items-center">
-            <Projects />
+          <Projects />
           </section>
-          <section id="experience" className="snap-start h-screen flex justify-center items-center">
+          <section id="skills" className="snap-start h-screen flex justify-center items-center">
             <Skills />
           </section>
         </div>

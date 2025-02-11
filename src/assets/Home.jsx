@@ -4,7 +4,6 @@ import profile from "../Images/Profile.png";
 function Home() {
   return (
     <div className="h-screen text-white flex flex-col md:flex-row items-center justify-center gap-12 px-6">
-      {/* Text Section */}
       <motion.div
         className="text-center md:text-left"
         initial={{ opacity: 0, x: -50 }}
@@ -23,7 +22,7 @@ function Home() {
           transition={{ delay: 0.5, duration: 1 }}
         >
           {[
-            { label: "Hire Me", action: "#" },
+            { label: "Hire Me", action: "https://in.linkedin.com/in/tanish-tunwal-165b21287" },
             { label: "Resume", action: "#" },
           ].map(({ label, action }) => (
             <motion.a
@@ -46,8 +45,7 @@ function Home() {
         alt="Tanish Tunwal - Web Developer"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 3, ease: "anticipate" }}
-        whileHover={{ scale: 1.05, rotate: 2 }}
+        transition={{ duration: 3 }}
       />
     </div>
   );

@@ -1,33 +1,30 @@
-import React from "react";
-import { motion } from "framer-motion";
-import "../index.css"; // Ensure CSS is imported
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import "../index.css";
 
 const About = () => {
-  return (
-    <section className="flex flex-col items-center justify-center min-h-screen text-white px-6 py-10 mt-20 w-full overflow-hidden relative">
-      {/* Animated Background */}
-      <motion.div
-        className="absolute inset-0 opacity-30"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
-      ></motion.div>
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" }); // Triggers when the section is visible
+  //make sure you use this in every while using framer-motion
 
-      {/* Heading Section */}
+  return (
+    <motion.section
+      ref={ref}
+      className="flex flex-col items-center justify-center min-h-screen text-white px-6 py-10 mt-20 w-full overflow-hidden relative"
+    >
       <motion.h2
         className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500 mb-4"
         initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
       >
         About Me
       </motion.h2>
 
-      {/* Description */}
       <motion.p
         className="text-base md:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto text-center"
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1.2, delay: 0.3 }}
       >
         Hi, I'm{" "}
@@ -57,7 +54,7 @@ const About = () => {
       <motion.p
         className="mt-4 text-base md:text-lg text-gray-300 max-w-3xl mx-auto text-center"
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1.5, delay: 0.5 }}
       >
         Currently, I'm pursuing{" "}
@@ -83,7 +80,7 @@ const About = () => {
         </motion.span>
         , and I am always excited to take on new challenges!
       </motion.p>
-    </section>
+    </motion.section>
   );
 };
 

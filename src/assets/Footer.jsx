@@ -4,7 +4,7 @@ function Footer() {
       <footer className="absolute bottom-0 w-full text-white text-center p-4 ">
         <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-6 bg-voilet-800 p-4 rounded-full shadow-lg">
 
-          <a to="#" className=" group w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:scale-125 transition-transform duration-300">
+          <a to="https://github.com/TanishTunwal" className=" group w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:scale-125 transition-transform duration-300">
             <svg
               className="w-4 h-4"
               aria-hidden="true"
