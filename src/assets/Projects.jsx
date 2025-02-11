@@ -25,6 +25,37 @@ function Projects() {
       link: "#",
       github: "https://github.com/TanishTunwal/MyPortfolio",
     },
+    {
+      title: "To be updated",
+      description: "SOON.........",
+      link: "#",
+      github: "#",
+    },{
+      title: "To be updated",
+      description: "SOON.........",
+      link: "#",
+      github: "#",
+    },{
+      title: "To be updated",
+      description: "SOON.........",
+      link: "#",
+      github: "#",
+    },{
+      title: "To be updated",
+      description: "SOON.........",
+      link: "#",
+      github: "#",
+    },{
+      title: "To be updated",
+      description: "SOON.........",
+      link: "#",
+      github: "#",
+    },{
+      title: "To be updated",
+      description: "SOON.........",
+      link: "#",
+      github: "#",
+    },
   ];
 
   return (
