@@ -2,7 +2,8 @@ import bgImage from "../Images/6057485.jpg";
 
 function BackgroundImagePage({ children }) { 
     return (
-        <main className="h-screen w-full relative overflow-hidden"> {/* w-full prevents horizontal scroll */}
+        <main className="min-h-screen w-full relative overflow-hidden">
+{/* w-full prevents horizontal scroll */}
             <img 
                 src={bgImage} 
                 alt="Background" 

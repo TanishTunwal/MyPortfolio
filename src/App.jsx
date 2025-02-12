@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Header from "./assets/Header";
 import Footer from "./assets/Footer";
 import Home from "./assets/Home";
@@ -12,17 +11,17 @@ function App() {
     <div>
       <BackgroundImagePage>
         <Header /> 
-        <div className="snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth">
+        <div className="w-screen h-screen overflow-y-scroll scroll-smooth">
           <section id="home" className="snap-start h-screen flex justify-center items-center">
             <Home />
           </section>
-          <section id="about" className="snap-start h-screen flex justify-center items-center">
+          <section id="about" className=" h-screen flex justify-center items-center">
             <About />
           </section>
-          <section id="projects" className="snap-start h-screen flex justify-center items-center">
+          <section id="projects" className=" h-screen flex justify-center items-center">
           <Projects />
           </section>
-          <section id="skills" className="snap-start h-screen flex justify-center items-center">
+          <section id="skills" className=" h-screen flex justify-center items-center">
             <Skills />
           </section>
         </div>

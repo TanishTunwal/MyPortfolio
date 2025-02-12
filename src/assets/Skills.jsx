@@ -1,59 +1,71 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaJava } from "react-icons/fa";
+import { SiTailwindcss, SiExpress, SiMongodb } from "react-icons/si";
+import { VscSymbolStructure } from "react-icons/vsc";
 
 const skills = [
-  "JavaScript", "React", "Node.js", "Express.js", 
-  "MongoDB", "HTML", "CSS", "Tailwind CSS", 
-  "Java", "Data Structures", "Algorithms"
+  { name: "HTML", icon: <FaHtml5 size={32} className="text-orange-500" /> },
+  { name: "CSS", icon: <FaCss3Alt size={32} className="text-blue-500" /> },
+  { name: "Tailwind CSS", icon: <SiTailwindcss size={32} className="text-teal-500" /> },
+  { name: "JavaScript", icon: <FaJs size={32} className="text-yellow-500" /> },
+  { name: "React", icon: <FaReact size={32} className="text-blue-400" /> },
+  { name: "Node.js", icon: <FaNodeJs size={32} className="text-green-500" /> },
+  { name: "Express.js", icon: <SiExpress size={32} className="text-gray-400" /> },
+  { name: "MongoDB", icon: <SiMongodb size={32} className="text-green-600" /> },
+  { name: "Java", icon: <FaJava size={32} className="text-red-600" /> },
+  { name: "Data Structures", icon: <VscSymbolStructure size={32} className="text-purple-500" /> },
 ];
 
 const Skills = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [viewed, setViewed] = useState(false);
+
+  useEffect(() => {
+    if (isInView && !viewed) setViewed(true);
+  }, [isInView, viewed]);
 
   return (
-    <motion.section 
-      ref={ref} 
-      id="skills" 
-      className="text-white min-h-screen flex flex-col justify-center items-center px-6 py-20"
+    <motion.section
+      ref={ref}
+      id="skills"
+      className="text-white min-h-screen flex flex-col justify-center items-center px-6 py-12 md:py-20 overflow-y-auto"
     >
-      <motion.h1
+      <motion.h2
         initial={{ opacity: 0, y: -50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        animate={viewed ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
         className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-teal-400 to-blue-500 text-transparent bg-clip-text mb-12"
       >
         Skills
-      </motion.h1>
+      </motion.h2>
 
       <motion.div
         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        animate={viewed ? "visible" : "hidden"}
         variants={{
           hidden: { opacity: 0 },
-          visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.15 },
-          },
+          visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
         }}
       >
         {skills.map((skill, index) => (
           <motion.div
             key={index}
-            className="relative bg-white bg-opacity-10 backdrop-blur-md p-5 rounded-xl shadow-lg text-center text-lg font-semibold cursor-pointer transition-all hover:scale-110 hover:shadow-xl"
+            className="group relative bg-white bg-opacity-10 p-5 rounded-xl shadow-lg text-center text-lg font-semibold cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400"
             variants={{
               hidden: { opacity: 0, y: 30 },
               visible: { opacity: 1, y: 0 },
             }}
-            whileHover={{
-              scale: 1.2,
-              backgroundColor: "rgba(255, 255, 255, 0.15)",
-              boxShadow: "0px 0px 20px rgba(255, 255, 255, 0.2)",
-            }}
+            whileHover={{ scale: 1.05 }}
+            tabIndex={0}
           >
-            <div className="absolute inset-0 border-2 border-transparent rounded-xl bg-gradient-to-r from-teal-400 to-blue-500 opacity-0 transition-opacity duration-300 hover:opacity-100"></div>
-            <span className="relative z-10">{skill}</span>
+            <span className="relative z-10 flex flex-col items-center">
+              {skill.icon}
+              <span className="mt-2">{skill.name}</span>
+              <span className="sr-only">{skill.name} icon</span>
+            </span>
           </motion.div>
         ))}
       </motion.div>

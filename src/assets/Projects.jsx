@@ -22,47 +22,16 @@ function Projects() {
     {
       title: "Portfolio Website",
       description: "A personal portfolio showcasing projects and skills.",
-      link: "#",
+      link: "/# home",
       github: "https://github.com/TanishTunwal/MyPortfolio",
-    },
-    {
-      title: "To be updated",
-      description: "SOON.........",
-      link: "#",
-      github: "#",
-    },{
-      title: "To be updated",
-      description: "SOON.........",
-      link: "#",
-      github: "#",
-    },{
-      title: "To be updated",
-      description: "SOON.........",
-      link: "#",
-      github: "#",
-    },{
-      title: "To be updated",
-      description: "SOON.........",
-      link: "#",
-      github: "#",
-    },{
-      title: "To be updated",
-      description: "SOON.........",
-      link: "#",
-      github: "#",
-    },{
-      title: "To be updated",
-      description: "SOON.........",
-      link: "#",
-      github: "#",
-    },
+    }
   ];
 
   return (
     <motion.section
       ref={ref}
       id="projects"
-      className="min-h-screen text-white py-16 px-6 flex flex-col items-center"
+      className="w-screen min-h-screen text-white py-16 px-6 flex flex-col items-center overflow-y-auto"
     >
       <motion.h2
         initial={{ opacity: 0, y: -50 }}
@@ -74,7 +43,7 @@ function Projects() {
       </motion.h2>
 
       <motion.div
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center w-full max-w-6xl"
+        className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center w-full max-w-6xl"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={{
@@ -88,17 +57,16 @@ function Projects() {
         {projectList.map(({ title, description, link, github }, index) => (
           <motion.div
             key={index}
-            className="relative bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl shadow-lg text-center hover:shadow-2xl transition transform hover:scale-105"
+            className="relative bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl shadow-lg text-center hover:shadow-2xl transition transform hover:scale-105 border-2 border-transparent hover:border-opacity-100 hover:border-teal-400"
             variants={{
               hidden: { opacity: 0, y: 30 },
-              visible: { opacity: 1, y: 0 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
             }}
           >
-            <div className="absolute inset-0 border-2 border-transparent rounded-xl bg-gradient-to-r from-teal-400 to-blue-500 opacity-0 transition-opacity duration-300"></div>
-            <h3 className="text-2xl font-semibold text-white relative z-10">{title}</h3>
-            <p className="mt-2 text-gray-300 relative z-10">{description}</p>
-            <div className="mt-4 flex justify-center gap-4 relative z-10">
-              {link && (
+            <h3 className="text-2xl font-semibold text-white">{title}</h3>
+            <p className="mt-2 text-gray-300">{description}</p>
+            <div className="mt-4 flex justify-center gap-4">
+              {link && link !== "/" && (
                 <a
                   href={link}
                   className="bg-gradient-to-r from-blue-500 to-teal-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:from-blue-600 hover:to-teal-600 transition duration-300 ease-in-out"
@@ -119,7 +87,7 @@ function Projects() {
               </a>
             </div>
           </motion.div>
-        ))    }
+        ))}
       </motion.div>
     </motion.section>
   );
