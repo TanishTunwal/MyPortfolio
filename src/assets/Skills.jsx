@@ -36,7 +36,7 @@ const Skills = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={viewed ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
-        className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-teal-400 to-blue-500 text-transparent bg-clip-text mb-12"
+        className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-teal-400 to-blue-500 text-transparent bg-clip-text mb-12 pb-16 "
       >
         Skills
       </motion.h2>
