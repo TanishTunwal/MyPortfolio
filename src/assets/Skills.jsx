@@ -30,7 +30,7 @@ const Skills = () => {
     <motion.section
       ref={ref}
       id="skills"
-      className="text-white min-h-screen flex flex-col justify-center items-center px-6 py-12 md:py-20 overflow-y-auto"
+      className="text-white min-h-screen flex flex-col justify-center items-center px-0 py-12 ld:py-20 pb-36 pt-96 overflow-y-auto"
     >
       <motion.h2
         initial={{ opacity: 0, y: -50 }}
