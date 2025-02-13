@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, memo } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaJava } from "react-icons/fa";
 import { SiTailwindcss, SiExpress, SiMongodb } from "react-icons/si";
@@ -30,13 +30,13 @@ const Skills = () => {
     <motion.section
       ref={ref}
       id="skills"
-      className="text-white min-h-screen flex flex-col justify-center items-center px-0 py-12 ld:py-20 pb-36 pt-96 overflow-y-auto"
+      className="text-white h-screen flex flex-col justify-center items-center px-4 py-16 sm:py-40 my-40 pb-32 sm:pb-40"
     >
       <motion.h2
         initial={{ opacity: 0, y: -50 }}
         animate={viewed ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
-        className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-teal-400 to-blue-500 text-transparent bg-clip-text mb-12 pb-16 "
+        className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-teal-400 to-blue-500 text-transparent bg-clip-text mb-12 pb-16"
       >
         Skills
       </motion.h2>
@@ -73,4 +73,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default memo(Skills);

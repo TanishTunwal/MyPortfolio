@@ -10,8 +10,9 @@ const About = () => {
   return (
     <motion.section
       ref={ref}
-      className="flex flex-col items-center justify-center min-h-screen text-white px-6 py-10 mt-20 w-full overflow-hidden relative"
+      className="flex flex-col items-center justify-center h-screen text-white mt-0 px-6 py-0 w-full"
     >
+
       <motion.h2
         className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500 mb-4"
         initial={{ opacity: 0, y: -30 }}

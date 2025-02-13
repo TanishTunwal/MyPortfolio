@@ -22,28 +22,28 @@ function Projects() {
     {
       title: "Portfolio Website",
       description: "A personal portfolio showcasing projects and skills.",
-      link: "/# home",
+      link: "/#home",
       github: "https://github.com/TanishTunwal/MyPortfolio",
-    }
+    },
   ];
 
   return (
     <motion.section
       ref={ref}
       id="projects"
-      className="w-screen min-h-screen text-white py-16 px-6 flex flex-col items-center overflow-y-auto"
+      className="w-screen min-h-screen text-white py-16 px-4 sm:px-6 flex flex-col items-center overflow-y-auto"
     >
       <motion.h2
         initial={{ opacity: 0, y: -50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1 }}
-        className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-teal-400 to-blue-500 text-transparent bg-clip-text md: mb-12"
+        className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-teal-400 to-blue-500 text-transparent bg-clip-text mb-8 md:mb-12"
       >
         My Projects
       </motion.h2>
 
       <motion.div
-        className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center w-full max-w-6xl"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl px-4"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={{
